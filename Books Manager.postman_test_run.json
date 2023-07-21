@@ -1,0 +1,255 @@
+{
+	"id": "5e0f48ae-5053-470a-9342-2e1654354e3a",
+	"name": "Books Manager",
+	"timestamp": "2023-07-21T09:02:33.453Z",
+	"collection_id": "11363962-c99ab69b-cfee-4464-ab6c-3e9ed815d3a8",
+	"folder_id": 0,
+	"environment_id": "11363962-c624d609-c46a-4d52-b325-5fcf410863a3",
+	"totalPass": 18,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-07-21T09:02:30.860Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3e995a63-2e32-439f-8a1f-1c2422129002",
+			"name": "Get All Books",
+			"url": "http://localhost:3000/books",
+			"time": 246,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response is an array": true,
+				"Each element in the array has the required properties": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each element in the array has the required properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				246
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response is an array": true,
+					"Each element in the array has the required properties": true
+				}
+			]
+		},
+		{
+			"id": "9846dae8-7013-4d00-9a8e-531faeecc330",
+			"name": "Create Book",
+			"url": "http://localhost:3000/books",
+			"time": 283,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 201": true,
+				"Response has the required fields": true,
+				"Price should be a non-negative number": true,
+				"Rating should be a number between 0 and 5": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Price should be a non-negative number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Rating should be a number between 0 and 5": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				283
+			],
+			"allTests": [
+				{
+					"Response status code is 201": true,
+					"Response has the required fields": true,
+					"Price should be a non-negative number": true,
+					"Rating should be a number between 0 and 5": true
+				}
+			]
+		},
+		{
+			"id": "1a5467e7-e974-4590-a0a1-fabff71b44e8",
+			"name": "Get Book By ID",
+			"url": "http://localhost:3000/books/64b98f8bff3aa483c5b2d5a0",
+			"time": 281,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields": true,
+				"The _id should be a non-empty string": true,
+				"Title is a non-empty string": true,
+				"Description is a non-empty string": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The _id should be a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Description is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				281
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields": true,
+					"The _id should be a non-empty string": true,
+					"Title is a non-empty string": true,
+					"Description is a non-empty string": true
+				}
+			]
+		},
+		{
+			"id": "d0baf87e-1e42-4027-8b40-6bbb9a3fdf5a",
+			"name": "Delete Book",
+			"url": "http://localhost:3000/books/64ba4979b675b1ecd7dba0df",
+			"time": 313,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Response status code is 204": true,
+				"Response body is empty": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				313
+			],
+			"allTests": [
+				{
+					"Response status code is 204": true,
+					"Response body is empty": true
+				}
+			]
+		},
+		{
+			"id": "9e8b03e9-e7b1-4a4c-b554-758812bfdfa0",
+			"name": "Update Book",
+			"url": "http://localhost:3000/books/64b995e17c24d771144d020c",
+			"time": 616,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Validate that the _id field is not empty": true,
+				"The price field should be a non-negative number": true,
+				"Verify __v field is present and equal to 0": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate that the _id field is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The price field should be a non-negative number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify __v field is present and equal to 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				616
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Validate that the _id field is not empty": true,
+					"The price field should be a non-negative number": true,
+					"Verify __v field is present and equal to 0": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1739,
+	"collection": {
+		"requests": [
+			{
+				"id": "3e995a63-2e32-439f-8a1f-1c2422129002",
+				"method": "GET"
+			},
+			{
+				"id": "9846dae8-7013-4d00-9a8e-531faeecc330",
+				"method": "POST"
+			},
+			{
+				"id": "1a5467e7-e974-4590-a0a1-fabff71b44e8",
+				"method": "GET"
+			},
+			{
+				"id": "d0baf87e-1e42-4027-8b40-6bbb9a3fdf5a",
+				"method": "DELETE"
+			},
+			{
+				"id": "9e8b03e9-e7b1-4a4c-b554-758812bfdfa0",
+				"method": "PATCH"
+			}
+		]
+	}
+}
