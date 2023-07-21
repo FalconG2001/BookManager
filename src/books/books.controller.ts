@@ -9,6 +9,7 @@ import {
   Query,
   UsePipes,
   ValidationPipe,
+  HttpCode,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { Book } from './books.model';
@@ -46,6 +47,7 @@ export class BooksController {
   }
 
   @Delete('/:id')
+  @HttpCode(204)
   async deleteBook(@Param('id') id: string): Promise<void> {
     await this.booksService.deleteBook(id);
   }
