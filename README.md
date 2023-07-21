@@ -34,6 +34,8 @@ Unit Tests
 $ npm run test
 ```
 
+![Test_Results](https://github.com/FalconG2001/BookManager/blob/master/assets/test_results.png)
+
 ## API
 ### /GET Requests
 **Get All Books**
