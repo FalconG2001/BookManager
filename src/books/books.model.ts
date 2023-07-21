@@ -9,3 +9,13 @@ export interface Book extends mongoose.Document {
   rating: number;
   publisher: string;
 }
+
+export interface BookModel {
+  id: string;
+  title: string;
+  description: string;
+  author: string;
+  price: number;
+  rating: number;
+  publisher: string;
+}

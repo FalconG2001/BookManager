@@ -28,3 +28,5 @@ export const BookSchema = new mongoose.Schema({
     default: 3,
   },
 });
+
+// export const Book = mongoose.model('Book', BookSchema);

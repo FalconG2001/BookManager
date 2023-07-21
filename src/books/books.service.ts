@@ -4,7 +4,7 @@ import { Book } from './books.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { GetBookFilterDto } from './dto/getBooksFilter.dto';
-import { CreateBookDto } from './dto/createBook.dto';
+import { CreateBookDto, UpdateBookDto } from './dto/createBook.dto';
 
 @Injectable()
 export class BooksService {
@@ -30,7 +30,7 @@ export class BooksService {
     return book;
   }
 
-  async createTask(createBookDto: CreateBookDto): Promise<Book> {
+  async createBook(createBookDto: CreateBookDto): Promise<Book> {
     try {
       const newBook = new this.bookModel(createBookDto);
       await newBook.save();
@@ -41,13 +41,13 @@ export class BooksService {
     }
   }
 
-  async updateBook(id: string, updatesDto: CreateBookDto): Promise<Book> {
+  async updateBook(id: string, updatesDto: UpdateBookDto): Promise<Book> {
     try {
-      const task = await this.bookModel.findByIdAndUpdate(id, updatesDto, {
+      const book = await this.bookModel.findByIdAndUpdate(id, updatesDto, {
         new: true,
       });
-      await task.save();
-      return task;
+      await book.save();
+      return book;
     } catch (error) {
       throw new NotFoundException(`The book with ${id} is not found`);
     }
