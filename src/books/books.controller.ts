@@ -15,6 +15,7 @@ import { BooksService } from './books.service';
 import { Book } from './books.model';
 import { GetBookFilterDto } from './dto/getBooksFilter.dto';
 import { CreateBookDto, UpdateBookDto } from './dto/createBook.dto';
+import { UpdateValidationPipe } from './pipe/updateValidation.pipe';
 
 @Controller('books')
 export class BooksController {
@@ -41,7 +42,7 @@ export class BooksController {
   @Patch('/:id')
   async updateBook(
     @Param('id') id: string,
-    @Body() updatesDto: UpdateBookDto,
+    @Body(UpdateValidationPipe) updatesDto: UpdateBookDto,
   ): Promise<Book> {
     return await this.booksService.updateBook(id, updatesDto);
   }

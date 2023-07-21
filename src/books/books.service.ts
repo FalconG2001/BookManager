@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { Book } from './books.model';
 
 import { InjectModel } from '@nestjs/mongoose';
@@ -43,14 +47,15 @@ export class BooksService {
 
   async updateBook(id: string, updatesDto: UpdateBookDto): Promise<Book> {
     try {
-      const book = await this.bookModel.findByIdAndUpdate(id, updatesDto, {
-        new: true,
-      });
-      await book.save();
-      return book;
+      await this.bookModel.findById(id);
     } catch (error) {
-      throw new NotFoundException(`The book with ${id} is not found`);
+      throw new NotFoundException(`Book with id: ${id} not found in database!`);
     }
+    const book = await this.bookModel.findByIdAndUpdate(id, updatesDto, {
+      new: true,
+    });
+    await book.save();
+    return book;
   }
 
   async deleteBook(id: string): Promise<void> {
