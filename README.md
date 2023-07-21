@@ -1,31 +1,14 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# BOOK STORE API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to the Online Bookstore API documentation! This RESTful API allows you to interact with bookstore, enabling you to perform various operations like, Retrieving a list of books available in the store, Get details of a specific book by its ID, Add a new book to the store, Update the details of an existing book, Delete a book from the store. The API is designed to be simple and easy to use.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Prerequisites
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
+- Node.js (v12 or higher)
+- npm or yarn
+- NestJs
+- TypeScript
+  
 ## Installation
 
 ```bash
@@ -46,28 +29,196 @@ $ npm run start:prod
 ```
 
 ## Test
-
+Unit Tests
 ```bash
-# unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+## API
+### /GET Requests
+**Get All Books**
+```sh
+http://localhost:3000/books
+```
+Retrieves a list of all available books in the bookstore.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Example:
+```json
+[
+    {
+        "_id": "64b98f46ff3aa483c5b2d59d",
+        "title": "Harry Potter",
+        "description": "The Order of Phoenix",
+        "author": "JK Rowling",
+        "publisher": "Phyleven",
+        "price": 10,
+        "rating": 3,
+        "__v": 0
+    },
+    {
+        "_id": "64b98f8bff3aa483c5b2d5a0",
+        "title": "The Alchemist",
+        "description": "When you want something, the whole universe conspires to make it happen!",
+        "author": "paulo coelho",
+        "publisher": "Phyleven",
+        "price": 10,
+        "rating": 5,
+        "__v": 0
+    },
+    {
+        "_id": "64b995e17c24d771144d020c",
+        "title": "A Song of Ice and Fire",
+        "description": "Winter Is Coming",
+        "author": "George R. R. Martin",
+        "publisher": "Phyleven",
+        "price": 10,
+        "rating": 5,
+        "__v": 0
+    },
+    {
+        "_id": "64ba4ad6b675b1ecd7dba0f0",
+        "title": "The Da Vinci Code",
+        "description": "Mystery thriller novel",
+        "author": "Dan Brown",
+        "publisher": "Phyleven",
+        "price": 10,
+        "rating": 3,
+        "__v": 0
+    }
+]
+```
 
-## Stay in touch
+**Get Book By ID**
+```sh
+http://localhost:3000/books/64b98f8bff3aa483c5b2d5a0
+```
+Retrieve detailed information about a specific book using its ID.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Example:
+```json
+{
+    "_id": "64b98f8bff3aa483c5b2d5a0",
+    "title": "The Alchemist",
+    "description": "When you want something, the whole universe conspires to make it happen!",
+    "author": "paulo coelho",
+    "publisher": "Phyleven",
+    "price": 10,
+    "rating": 5,
+    "__v": 0
+}
+```
 
-## License
+### /POST Request
+**Create Book**
+```sh
+http://localhost:3000/books
+```
+Adds new book to the store
 
-Nest is [MIT licensed](LICENSE).
+Example:
+
+Body:
+```json
+{
+    "title": "The Da Vinci Code",
+    "description": "Mystery thriller novel",
+    "author": "Dan Brown",
+    "publisher": "Phyleven",
+    "price": 10
+}
+```
+
+Response:
+```json
+{
+    "title": "The Da Vinci Code",
+    "description": "Mystery thriller novel",
+    "author": "Dan Brown",
+    "publisher": "Phyleven",
+    "price": 10,
+    "rating": 3,
+    "_id": "64ba4ad6b675b1ecd7dba0f0",
+    "__v": 0
+}
+```
+
+### /PATCH Request
+**Update Book Data**
+```sh
+http://localhost:3000/books/64b995e17c24d771144d020c
+```
+Updates the Specific book using its ID
+
+Example:
+
+Body:
+```json
+{
+    "description": "Winter Is Coming",
+}
+```
+
+Before:
+```json
+{
+    "_id": "64b995e17c24d771144d020c",
+    "title": "A Song of Ice and Fire",
+    "description": "Valar Morghulis",
+    "author": "George R. R. Martin",
+    "publisher": "Phyleven",
+    "price": 10,
+    "rating": 5,
+    "__v": 0
+}
+```
+
+After Response:
+```json
+{
+    "_id": "64b995e17c24d771144d020c",
+    "title": "A Song of Ice and Fire",
+    "description": "Winter Is Coming",
+    "author": "George R. R. Martin",
+    "publisher": "Phyleven",
+    "price": 10,
+    "rating": 5,
+    "__v": 0
+}
+```
+
+### /Delete Request
+**Delete Book**
+```sh
+http://localhost:3000/books/64ba49a7b675b1ecd7dba0e7
+```
+Removes a book from store using its ID.
+
+## Error Responses
+In case of an error, the API will respond with appropriate error messages along with the status code.
+
+Example Error Response:
+
+1. **Invalid ID**
+
+```json
+{
+    "message": "Book with 64b98f8bff3aa483c5b2d5a not found",
+    "error": "Not Found",
+    "statusCode": 404
+}
+```
+2. **Validation Errors**
+```json
+{
+    "message": "rating must be between 1 and 5",
+    "error": "Bad Request",
+    "statusCode": 400
+}
+```
+```json
+{
+    "message": "There should be no empty fields!",
+    "error": "Bad Request",
+    "statusCode": 400
+}
+```
